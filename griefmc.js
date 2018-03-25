@@ -43,7 +43,7 @@ client.on("guildMemberAdd", member => {
   const embed = new Discord.RichEmbed()
   .setTitle('Чё, избранный тип?')
   .setColor("#ee83ac")
-  .setDescription("Приветствуем ${member.user.tag} на сервере! Как он сюда попал? Тут видно замешан Сплэш или Алекс..")
+  .setDescription(`Приветствуем ${member.user.tag} на сервере! Как он сюда попал? Тут видно замешан Сплэш или Алекс..`)
   .setFooter("GRIEFMC")
   .setTimestamp();
   client.channels.get('416945868751765506').send({embed});
