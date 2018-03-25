@@ -39,6 +39,16 @@ function pingForPlayers() {
 
 // Runs when client connects to Discord.
 
+client.on("guildMemberAdd", member => {
+  const embed = new Discord.RichEmbed()
+  .setTitle('Чё, избранный тип?')
+  .setColor("#ee83ac")
+  .setDescription("Приветствуем ${member.user.tag} на сервере! Как он сюда попал? Тут видно замешан Сплэш или Алекс..")
+  .setFooter("GRIEFMC")
+  .setTimestamp();
+  client.channels.get('416945868751765506').send({embed});
+});
+
 client.on("message", async message => {
 	if (message.channel.id === '424634328946049025') {
         console.log('caught '+message.id);
@@ -58,7 +68,7 @@ let players = res.data.players.list
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
 		        const embed = new Discord.RichEmbed()
-                .setTitle(`g!about`)
+                .setTitle(`Онлайн:`)
                 .setFooter("GRIEFMC")
                 .setDescription(`${playerCount} из 1000 игроков на сервере play.grmc.su\n\n${players}`);
             message.channel.send({embed});
