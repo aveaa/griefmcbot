@@ -1,0 +1,14 @@
+{
+  "name": "GRIEFMCBot",
+  "description": "Bot for Discord",
+  "version": "0.1.0",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node griefmc.js"
+  },
+	"dependencies": {
+		"axios": "^0.17.1",
+		"discord.js": "^11.3.0",
+		"dotenv": "^5.0.0"
+	}
+}
