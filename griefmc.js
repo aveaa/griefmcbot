@@ -18,7 +18,7 @@ async function multipleReact(message, arr) {
 function pingForPlayers() {
 
 	// Ping API for server data.
-	axios.get(`https://${apidomain}/1/${ip}${port}`).then(res => {
+	axios.get(`https://${apidomain}/1/${ip}:${port}`).then(res => {
 		// If we got a valid response
 		if(res.data && res.data.players) {
 			let playerCount = res.data.players.online || 0 // Default to zero
@@ -50,7 +50,7 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
     if(command === "online") {
 		// Ping API for server data.
-	axios.get(`https://${apidomain}/1/${ip}${port}`).then(res => {
+	axios.get(`https://${apidomain}/1/${ip}:${port}`).then(res => {
 		// If we got a valid response
 		if(res.data && res.data.players) {
 let players = res.data.players.list
@@ -69,7 +69,7 @@ let players = res.data.players.list
 	        const embed = new Discord.RichEmbed()
                 .setTitle(`Обо мне:`)
                 .setFooter("GRIEFMC")
-                .setDescription('Данного бота сделал [SPONSOR] DipperProdYT (<@' + authowner + '>)\nБот не подтвержён сервером GRIEFMC, это чисто разработка игрока.\n\nCopyright by [TheDipperProduction](https://withdipper.tk)\n\nКоманды:\n```fix\ng!serverinfo - что такое GRIEFMC?\ng!online - узнать кто на сервере\ng!avatar [@mention] - аватарка пользователя (сделал чисто по фану)\n```\n\nПроект на GitHub - [тык, ;3](https://github.com/thedipperproduction/griefmc_discord_bot.js)\nДобавить его к себе - [тык, ;3](https://discordapp.com/oauth2/authorize?client_id=427154671048589322&scope=bot&permissions=67128449)');
+                .setDescription('Данного бота сделал [SPONSOR] DipperProdYT (<@' + authowner + '>)\nБот не подтвержён сервером GRIEFMC, это чисто разработка игрока.\n\nCopyright by [TheDipperProduction](https://withdipper.tk)\n\nКоманды:\n```fix\ng!serverinfo - что такое GRIEFMC?\ng!online - узнать кто на сервере\ng!avatar [@mention] - аватарка пользователя (сделал чисто по фану)\n```\n\nПроект на GitHub - [тык, ;3](https://github.com/thedipperproduction/griefmc_discord_bot.js)\nДобавить его к себе - [тык, ;3](http://griefmcbot.thedipper.cf)');
             message.channel.send({embed});
 	}
 	if(command === "serverinfo") {
