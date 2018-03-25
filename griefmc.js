@@ -32,7 +32,7 @@ function pingForPlayers() {
 			console.log('Updated player count to', playerCount)
 		}
 		else
-			console.log('Could not load player count data for', process.env.MC_SERVER)
+			console.log('Could not load player count data for', process.env.GRIEFMC_IP)
 
 	}).catch(err => console.log('Error pinging api.mcsrvstat.us for data:', err))
 }
