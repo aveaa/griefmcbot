@@ -1,1 +1,2 @@
-# griefmc_discord_bot.js
+# GRIEFMC.JS
+Бот для Discord сервера
