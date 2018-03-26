@@ -54,13 +54,14 @@ client.on("message", async message => {
 		// If we got a valid response
 		if(res.data && res.data.players) {
 let players = res.data.players.list
-			let playerCount = res.data.players.online || 0 // Default to zero
+			let playerCount = res.data.players.online || 0
+			let playerMaxCoumt = res.data.players.max			
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
 		        const embed = new Discord.RichEmbed()
                 .setTitle(`Онлайн:`)
                 .setFooter("GRIEFMC")
-                .setDescription(`${playerCount} из 1000 игроков на сервере play.grmc.su\n\n${players}`);
+                .setDescription(`${playerCount} из ${playerMaxCount} игроков на сервере play.grmc.su\n\n${players}`);
             message.channel.send({embed});
     }
 	})
