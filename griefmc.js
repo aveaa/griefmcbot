@@ -133,15 +133,15 @@ client.on("message", async message => {
 		m.edit('`Устанавливаю обновление...`');
 		m.edit('`Устанавливаю обновление...`');
 		m.edit('`Устанавливаю обновление...`');
-			client.user.setStatus('dnd');
+			client.user.setStatus('online');
 			client.user.setPresence({
 				game: {
 					// Example: "Watching 5 players on server.com"
-					name: `перезапуск`,
+					name: `g!about`,
 					type: 3 // Use activity type 3 which is "Watching"
 				}
 })
-		client.destroy();
+		m.edit('`Обновление установлено.`');
 	}
     if(command === "online") {
 		// Ping API for server data.
