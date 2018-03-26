@@ -8,6 +8,7 @@ var env_vh_token = process.env.BOTTOKEN
 var apidomain = process.env.APIDOMAIN
 var ip = process.env.GRIEFMC_IP
 var port = process.env.GRIEFMC_PORT
+var DipperProdYT = '[BOTOWNER] DipperProdYT';
 
 async function multipleReact(message, arr) {
     if (arr !== []) {
