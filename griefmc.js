@@ -48,107 +48,11 @@ client.on("message", async message => {
   if(message.content.indexOf(authprefix) !== 0) return;
   const args = message.content.slice(authprefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-	if(command === "update") {
-		if(message.author.id !== authowner)
-			return message.channel.send("`Ваш ID не записан в конфигурацию GRIEFMC OS.`");
-    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-		client.user.setStatus('dnd');
-		client.user.setPresence({
-				game: {
-					// Example: "Watching 5 players on server.com"
-					name: `подключение к серверу`,
-					type: 3 // Use activity type 3 which is "Watching"
-				}
-})
-    const m = await message.channel.send("`Подключение к griefmcbot.thedipper.cf`");
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-			client.user.setStatus('dnd');
-			client.user.setPresence({
-				game: {
-					// Example: "Watching 5 players on server.com"
-					name: `прогресс скачивания обновления`,
-					type: 3 // Use activity type 3 which is "Watching"
-				}
-					})
-		    m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');
-		client.user.setStatus('dnd');
-		client.user.setPresence({
-				game: {
-					// Example: "Watching 5 players on server.com"
-					name: `установку обновления`,
-					type: 3 // Use activity type 3 which is "Watching"
-				}
-})
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Устанавливаю обновление...`');
-			client.user.setStatus('online');
-			client.user.setPresence({
-				game: {
-					// Example: "Watching 5 players on server.com"
-					name: `g!about`,
-					type: 3 // Use activity type 3 which is "Watching"
-				}
-})
-		m.edit('`Обновление установлено.`');
-	}
     if(command === "online") {
 		// Ping API for server data.
 	axios.get(`https://${apidomain}/1/${ip}:${port}`).then(res => {
 		// If we got a valid response
 		if(res.data && res.data.players) {
-let players = res.data.players.list
 			let playerCount = res.data.players.online || 0
 			let playerMaxCount = res.data.players.max			
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
@@ -156,16 +60,29 @@ let players = res.data.players.list
 		        const embed = new Discord.RichEmbed()
                 .setTitle(`Онлайн:`)
                 .setFooter("GRIEFMC")
-                .setDescription(`${playerCount} из ${playerMaxCount} игроков на сервере play.grmc.su\n\n${players}`);
+                .setDescription(`${playerCount} из ${playerMaxCount} игроков на сервере play.grmc.su\n\nЧтобы узнать кто на сервере, напишите g!players`);
             message.channel.send({embed});
     }
+    if(command === "players") {
+		// Ping API for server data.
+	axios.get(`https://${apidomain}/1/${ip}:${port}`).then(res => {
+		// If we got a valid response
+		if(res.data && res.data.players) {
+let players = res.data.players.list			
+    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
+    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
+		        const embed = new Discord.RichEmbed()
+                .setTitle(`Игроки:`)
+                .setFooter("GRIEFMC")
+                .setDescription(`${players}`);
+            message.channel.send({embed});
 	})
 	}
 	if(command === "about") {
 	        const embed = new Discord.RichEmbed()
                 .setTitle(`Обо мне:`)
                 .setFooter("GRIEFMC")
-                .setDescription('Данного бота сделал [SPONSOR] DipperProdYT (<@' + authowner + '>)\nБот не подтвержён сервером GRIEFMC, это чисто разработка игрока.\n\nCopyright by [TheDipperProduction](https://withdipper.tk)\n\nКоманды:\n```fix\ng!serverinfo - что такое GRIEFMC?\ng!online - узнать кто на сервере\ng!avatar [@mention] - аватарка пользователя (сделал чисто по фану)\n```\n\nПроект на GitHub - [тык, ;3](https://github.com/thedipperproduction/griefmc_discord_bot.js)\nДобавить его к себе - [тык, ;3](http://griefmcbot.thedipper.cf)');
+                .setDescription('Данного бота сделал [SPONSOR] DipperProdYT (<@' + authowner + '>)\nБот не подтвержён сервером GRIEFMC, это чисто разработка игрока.\n\nCopyright by [TheDipperProduction](https://withdipper.tk)\n\nКоманды:\n```fix\ng!serverinfo - что такое GRIEFMC?\ng!online - узнать кол-во игроков на сервере\ng!players - узнать кто на сервере\ng!avatar [@mention] - аватарка пользователя (сделал чисто по фану)\n```\n\nПроект на GitHub - [тык, ;3](https://github.com/thedipperproduction/griefmc_discord_bot.js)\nДобавить его к себе - [тык, ;3](http://griefmcbot.thedipper.cf)');
             message.channel.send({embed});
 	}
 	if(command === "serverinfo") {
