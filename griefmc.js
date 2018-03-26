@@ -63,7 +63,7 @@ client.on("message", async message => {
                 .setDescription(`${playerCount} из ${playerMaxCount} игроков на сервере play.grmc.su\n\nЧтобы узнать кто на сервере, напишите g!players`);
             message.channel.send({embed});
     }
-}
+})
 							       }
     if(command === "players") {
 		// Ping API for server data.
@@ -79,7 +79,7 @@ let players = res.data.players.list
                 .setDescription(`${players}`);
             message.channel.send({embed});
 	}
-}
+})
 }
 	if(command === "about") {
 	        const embed = new Discord.RichEmbed()
