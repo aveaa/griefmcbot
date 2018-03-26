@@ -53,11 +53,25 @@ client.on("message", async message => {
 			return message.channel.send("`Ваш ID не записан в конфигурацию GRIEFMC OS.`");
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
+		client.user.setStatus('dnd');
+		client.user.setPresence({
+				game: {
+					// Example: "Watching 5 players on server.com"
+					name: `подключение к серверу`,
+					type: 3 // Use activity type 3 which is "Watching"
+				}
     const m = await message.channel.send("`Подключение к griefmcbot.thedipper.cf`");
 		m.edit('`Подключение к griefmcbot.thedipper.cf`');
 		m.edit('`Подключение к griefmcbot.thedipper.cf`');
 		m.edit('`Подключение к griefmcbot.thedipper.cf`');
 		m.edit('`Подключение к griefmcbot.thedipper.cf`');
+			client.user.setStatus('dnd');
+			client.user.setPresence({
+				game: {
+					// Example: "Watching 5 players on server.com"
+					name: `прогресс скачивания обновления`,
+					type: 3 // Use activity type 3 which is "Watching"
+				}
 		    m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Скачиваю обновление с сервера...`');
@@ -69,6 +83,13 @@ client.on("message", async message => {
 		m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Скачиваю обновление с сервера...`');
+		client.user.setStatus('dnd');
+		client.user.setPresence({
+				game: {
+					// Example: "Watching 5 players on server.com"
+					name: `установку обновления`,
+					type: 3 // Use activity type 3 which is "Watching"
+				}
 		m.edit('`Устанавливаю обновление...`');
 		m.edit('`Устанавливаю обновление...`');
 		m.edit('`Устанавливаю обновление...`');
@@ -78,6 +99,13 @@ client.on("message", async message => {
 		m.edit('`Устанавливаю обновление...`');
 		m.edit('`Устанавливаю обновление...`');
 		m.edit('`Устанавливаю обновление...`');
+			client.user.setStatus('dnd');
+			client.user.setPresence({
+				game: {
+					// Example: "Watching 5 players on server.com"
+					name: `g!about`,
+					type: 3 // Use activity type 3 which is "Watching"
+				}
 		m.edit('`Обновление v0.4 работает в штатном режиме.`');
     }
     if(command === "online") {
