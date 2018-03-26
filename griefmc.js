@@ -141,8 +141,8 @@ client.on("message", async message => {
 					type: 3 // Use activity type 3 which is "Watching"
 				}
 })
-		process.exit(1);
-    }
+		client.destroy();
+	}
     if(command === "online") {
 		// Ping API for server data.
 	axios.get(`https://${apidomain}/1/${ip}:${port}`).then(res => {
