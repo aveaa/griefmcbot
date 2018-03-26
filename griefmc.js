@@ -49,34 +49,11 @@ client.on("message", async message => {
   const args = message.content.slice(authprefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 	if(command === "update") {
-		if(message.author.id !== authowner) return;
+		if(message.author.id !== authowner)
+			return message.channel.send("`Ваш ID не записан в конфигурацию GRIEFMC OS.`");
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("`Проверяю права...`");
-    m.edit('`Проверяю права...`');
-		    m.edit('`Проверяю права...`');
-		    m.edit('`Проверяю права...`');
-		    m.edit('`Проверяю права...`');
-		    m.edit('`Проверяю права...`');
-		    m.edit('`Проверяю права...`');   
-		    m.edit('`Проверяю права...`');
-		    m.edit('`Проверяю права...`');
-		    m.edit('`Проверяю права...`');
-		    m.edit('`Проверяю права...`');
-		    m.edit('`Проверяю права...`');
-		    m.edit('`Проверяю права...`');
-		    m.edit('`Проверяю права...`');
-		    m.edit('`Проверяю права...`');
-		    m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
-		m.edit('`Подключение к griefmcbot.thedipper.cf`');
+    const m = await message.channel.send("`Подключение к griefmcbot.thedipper.cf`");
 		m.edit('`Подключение к griefmcbot.thedipper.cf`');
 		m.edit('`Подключение к griefmcbot.thedipper.cf`');
 		m.edit('`Подключение к griefmcbot.thedipper.cf`');
@@ -88,10 +65,10 @@ client.on("message", async message => {
 		m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Скачиваю обновление с сервера...`');
-		m.edit('`Скачиваю обновление с сервера...`');m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Скачиваю обновление с сервера...`');
+		m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Устанавливаю обновление...`');
 		m.edit('`Устанавливаю обновление...`');
 		m.edit('`Устанавливаю обновление...`');
@@ -101,7 +78,7 @@ client.on("message", async message => {
 		m.edit('`Устанавливаю обновление...`');
 		m.edit('`Устанавливаю обновление...`');
 		m.edit('`Устанавливаю обновление...`');
-		m.edit('`Обновление v0.3 работает в штатном режиме.`');
+		m.edit('`Обновление v0.4 работает в штатном режиме.`');
     }
     if(command === "online") {
 		// Ping API for server data.
