@@ -150,7 +150,7 @@ client.on("message", async message => {
 		if(res.data && res.data.players) {
 let players = res.data.players.list
 			let playerCount = res.data.players.online || 0
-			let playerMaxCoumt = res.data.players.max			
+			let playerMaxCount = res.data.players.max			
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
 		        const embed = new Discord.RichEmbed()
