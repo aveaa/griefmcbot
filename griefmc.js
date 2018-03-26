@@ -60,7 +60,7 @@ client.on("message", async message => {
 					name: `подключение к серверу`,
 					type: 3 // Use activity type 3 which is "Watching"
 				}
-}
+})
     const m = await message.channel.send("`Подключение к griefmcbot.thedipper.cf`");
 		m.edit('`Подключение к griefmcbot.thedipper.cf`');
 		m.edit('`Подключение к griefmcbot.thedipper.cf`');
@@ -72,7 +72,7 @@ client.on("message", async message => {
 					name: `прогресс скачивания обновления`,
 					type: 3 // Use activity type 3 which is "Watching"
 				}
-					}
+					})
 		    m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Скачиваю обновление с сервера...`');
@@ -91,7 +91,7 @@ client.on("message", async message => {
 					name: `установку обновления`,
 					type: 3 // Use activity type 3 which is "Watching"
 				}
-}
+})
 		m.edit('`Устанавливаю обновление...`');
 		m.edit('`Устанавливаю обновление...`');
 		m.edit('`Устанавливаю обновление...`');
@@ -108,7 +108,7 @@ client.on("message", async message => {
 					name: `g!about`,
 					type: 3 // Use activity type 3 which is "Watching"
 				}
-}
+})
 		m.edit('`Обновление v0.4 работает в штатном режиме.`');
     }
     if(command === "online") {
