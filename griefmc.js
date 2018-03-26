@@ -76,7 +76,6 @@ let players = res.data.players.list
                 .setFooter("GRIEFMC")
                 .setDescription(`${players}`);
             message.channel.send({embed});
-	})
 	}
 	if(command === "about") {
 	        const embed = new Discord.RichEmbed()
