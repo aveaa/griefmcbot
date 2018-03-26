@@ -65,6 +65,16 @@ client.on("message", async message => {
 		m.edit('`Подключение к griefmcbot.thedipper.cf`');
 		m.edit('`Подключение к griefmcbot.thedipper.cf`');
 		m.edit('`Подключение к griefmcbot.thedipper.cf`');
+		m.edit('`Подключение к griefmcbot.thedipper.cf`');
+		m.edit('`Подключение к griefmcbot.thedipper.cf`');
+		m.edit('`Подключение к griefmcbot.thedipper.cf`');
+		m.edit('`Подключение к griefmcbot.thedipper.cf`');
+		m.edit('`Подключение к griefmcbot.thedipper.cf`');
+		m.edit('`Подключение к griefmcbot.thedipper.cf`');
+		m.edit('`Подключение к griefmcbot.thedipper.cf`');
+		m.edit('`Подключение к griefmcbot.thedipper.cf`');
+		m.edit('`Подключение к griefmcbot.thedipper.cf`');
+		m.edit('`Подключение к griefmcbot.thedipper.cf`');
 			client.user.setStatus('dnd');
 			client.user.setPresence({
 				game: {
@@ -74,6 +84,12 @@ client.on("message", async message => {
 				}
 					})
 		    m.edit('`Скачиваю обновление с сервера...`');
+		m.edit('`Скачиваю обновление с сервера...`');
+		m.edit('`Скачиваю обновление с сервера...`');
+		m.edit('`Скачиваю обновление с сервера...`');
+		m.edit('`Скачиваю обновление с сервера...`');
+		m.edit('`Скачиваю обновление с сервера...`');
+		m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Скачиваю обновление с сервера...`');
 		m.edit('`Скачиваю обновление с сервера...`');
@@ -101,15 +117,31 @@ client.on("message", async message => {
 		m.edit('`Устанавливаю обновление...`');
 		m.edit('`Устанавливаю обновление...`');
 		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
+		m.edit('`Устанавливаю обновление...`');
 			client.user.setStatus('dnd');
 			client.user.setPresence({
 				game: {
 					// Example: "Watching 5 players on server.com"
-					name: `g!about`,
+					name: `перезапуск`,
 					type: 3 // Use activity type 3 which is "Watching"
 				}
 })
-		m.edit('`Обновление v0.4 работает в штатном режиме.`');
+		process.exit(1);
     }
     if(command === "online") {
 		// Ping API for server data.
