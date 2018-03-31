@@ -76,7 +76,7 @@ let players = res.data.players.list
 		        const embed = new Discord.RichEmbed()
                 .setTitle(`Игроки:`)
                 .setFooter("GRIEFMC")
-                .setDescription(`${players}`);
+                .setDescription('`' + players + '`');
             message.channel.send({embed});
 	}
 })
