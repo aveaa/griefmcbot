@@ -3,7 +3,7 @@ const axios = require('axios')
 const Discord = require('discord.js')
 const client = new Discord.Client()
 var authprefix = process.env.BOTPREFIX
-var authowner = process.env.BOTOWNER
+var authowner = '178404926869733376';
 var env_vh_token = process.env.BOTTOKEN
 var apidomain = process.env.APIDOMAIN
 var ip = process.env.GRIEFMC_IP
@@ -25,7 +25,7 @@ function pingForPlayers() {
 			client.user.setPresence({
 				game: {
 					// Example: "Watching 5 players on server.com"
-					name: `g!about`,
+					name: `на Сплэша | g!help`,
 					type: 3 // Use activity type 3 which is "Watching"
 				}
 			})
@@ -76,30 +76,21 @@ let players = res.data.players.list
 		        const embed = new Discord.RichEmbed()
                 .setTitle(`Игроки:`)
                 .setFooter("GRIEFMC")
-                .setDescription('`' + players + '`');
+                .setDescription(players);
             message.channel.send({embed});
 	}
 })
 }
+	if(command === "help") {
+		message.author.send('Команды:\n```fix\ng!about - информация о создателе бота\ng!serverinfo - что такое GRIEFMC?\ng!online - узнать кол-во игроков на сервере\ng!players - узнать кто на сервере\ng!avatar [@mention] - аватарка пользователя (сделал просто так, а почему бы и нет?)\n```');
+		message.reply(`проверьте свои личные сообщения`);
+	}
 	if(command === "about") {
 	        const embed = new Discord.RichEmbed()
                 .setTitle(`Обо мне:`)
                 .setFooter("GRIEFMC")
-                .setDescription('Данного бота сделал [SPONSOR] DipperProdYT (<@' + authowner + '>)\nБот не подтвержён сервером GRIEFMC, это чисто разработка игрока.\n\nCopyright by [TheDipperProduction](https://withdipper.tk)\n\nКоманды:\n```fix\ng!serverinfo - что такое GRIEFMC?\ng!online - узнать кол-во игроков на сервере\ng!players - узнать кто на сервере\ng!avatar [@mention] - аватарка пользователя (сделал чисто по фану)\n```\n\nПроект на GitHub - [тык, ;3](https://github.com/thedipperproduction/griefmc_discord_bot.js)\nДобавить его к себе - [тык, ;3](http://griefmcbot.thedipper.cf)');
+                .setDescription('Данного бота сделал [SPONSOR] DipperProdYT (<@' + authowner + '>)\nБот не подтвержён сервером GRIEFMC, это чисто разработка игрока.\n\nCopyright by [Eclipse](http://eclipsedev.cf)\n\nПроект на GitHub - [тык, ;3](https://github.com/thedipperproduction/griefmcbot)\nДобавить его к себе - [тык, ;3](http://griefmcbot.thedipper.cf)');
             message.channel.send({embed});
-	}
-	if(command === "serverinfo") {
-	        const embed = new Discord.RichEmbed()
-                .setTitle(`Что такое GRIEFMC?`)
-                .setFooter("GRIEFMC")
-                .setDescription('GRIEFMC - это Minecraft проект, созданный на пользу игрокам.\nНа нём можно взрывать ТНТ, спавнить криперов и т.д (ну вообщем, сервер где всё можно).\n\nАдминистратор: __  __MrSplash__  __ (Discord ID: <@224205286636912640>)\nМодератор: NuclearRuralLamp (Discord ID: <@245528104750022656>)\nСайт: [тык, ;3](https://grmc.su)\nГруппа ВК: [тык, ;3](https://vk.com/griefmc)');
-            message.channel.send({embed});
-	}
-	if(command === "status") {
-		if(message.author.id !== authowner) return;
-		const sayStatus = args.join(" ");
-		client.user.setPresence({ game: { name: sayStatus, type: 3 } }).catch();
-		message.channel.send('[GRIEFMC] Статус изменён:\n```fix\nСмотрит ' + status + '\n```');
 	}
 	if(command === "avatar") {
 		let member = message.mentions.members.first();
@@ -112,7 +103,7 @@ let players = res.data.players.list
                 .setDescription('Если изображение не загружается, тыкните на него');
             message.channel.send({embed});
 	}
-if (command === "cmd_eval") {
+if (command === "eval") {
     if(message.author.id !== authowner) return;
     try {
       var code = args.join(" ");
