@@ -82,7 +82,7 @@ let players = res.data.players.list
 })
 }
 	if(command === "help") {
-		message.author.send('Команды:\n```fix\ng!about - информация о создателе бота\ng!serverinfo - что такое GRIEFMC?\ng!online - узнать кол-во игроков на сервере\ng!players - узнать кто на сервере\ng!avatar [@mention] - аватарка пользователя (сделал просто так, а почему бы и нет?)\n```');
+		message.author.send('Команды:\n```fix\ng!about - информация о создателе бота\ng!serverinfo - что такое GRIEFMC?\ng!online - узнать кол-во игроков на сервере\ng!avatar [@mention] - аватарка пользователя (сделал просто так, а почему бы и нет?)\n```');
 		message.reply(`проверьте свои личные сообщения`);
 	}
 	if(command === "about") {
