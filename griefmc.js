@@ -48,6 +48,7 @@ client.on("message", async message => {
   if(message.content.indexOf(authprefix) !== 0) return;
   const args = message.content.slice(authprefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
+	
     if(command === "online") {
 		// Ping API for server data.
 	axios.get(`https://${apidomain}/1/${ip}:${port}`).then(res => {
@@ -82,7 +83,7 @@ let players = res.data.players.list
 })
 }
 	if(command === "help") {
-		message.author.send('Команды:\n```fix\ng!about - информация о создателе бота\ng!serverinfo - что такое GRIEFMC?\ng!online - узнать кол-во игроков на сервере\ng!avatar [@mention] - аватарка пользователя (сделал просто так, а почему бы и нет?)\n```');
+		message.author.send('Команды:\n```fix\ng!about - информация о создателе бота\ng!online - узнать кол-во игроков на сервере\ng!avatar [@mention] - аватарка пользователя (сделал просто так, а почему бы и нет?)\n```');
 		message.reply(`проверьте свои личные сообщения`);
 	}
 	if(command === "about") {
