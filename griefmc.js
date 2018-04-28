@@ -90,7 +90,7 @@ let players = res.data.players.list
 	        const embed = new Discord.RichEmbed()
                 .setTitle(`Обо мне:`)
                 .setFooter("GRIEFMC")
-                .setDescription('Данного бота сделал [SPONSOR] DipperProdYT (<@' + authowner + '>)\nБот не подтвержён сервером GRIEFMC, это чисто разработка игрока.\n\nCopyright by [Eclipse](http://eclipsedev.cf)\n\nПроект на GitHub - [тык, ;3](https://github.com/thedipperproduction/griefmcbot)\nДобавить его к себе - [тык, ;3](http://griefmcbot.thedipper.cf)\nСервер тех.поддержки: [тык, ;3](https://discord.gg/dGVdPyk)');
+                .setDescription('Данного бота сделал [SPONSOR] DipperProdYT (<@' + authowner + '>)\nБот не подтвержён сервером GRIEFMC, это чисто разработка игрока.\n\nCopyright by [Eclipse](http://eclipsedev.cf)\n\nПроект на GitHub - [тык, ;3](https://github.com/EclipseHub/griefmcbot)\nДобавить его к себе - [тык, ;3](http://griefmcbot.thedipper.cf)\nСервер тех.поддержки: [тык, ;3](https://discord.gg/dGVdPyk)');
             message.channel.send({embed});
 	}
 	if(command === "avatar") {
