@@ -34,12 +34,6 @@ client.on("message", async message => {
     }
   if(message.author.bot) return;
 	
-	// Logger
-	if(message.content) {
-		client.channels.get("439803765470789652").send(`**${message.author}** с сервера **${client.guild.name}**:` + message.content);
-	}
-	// Logger
-	
   if(message.content.indexOf(authprefix) !== 0) return;
   const args = message.content.slice(authprefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
