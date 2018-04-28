@@ -1,4 +1,3 @@
-require('dotenv').config() // Load .env file
 const axios = require('axios')
 const Discord = require('discord.js')
 const client = new Discord.Client()
@@ -9,24 +8,15 @@ var apidomain = process.env.APIDOMAIN
 var ip = process.env.GRIEFMC_IP
 var port = process.env.GRIEFMC_PORT
 
-async function multipleReact(message, arr) {
-    if (arr !== []) {
-        await message.react(arr.shift()).catch(console.error).then(function () {multipleReact(message,arr).catch(console.error);});
-    }
-}
-
 function pingForPlayers() {
 
-	// Ping API for server data.
 	axios.get(`https://${apidomain}/1/${ip}:${port}`).then(res => {
-		// If we got a valid response
 		if(res.data && res.data.players) {
-			let playerCount = res.data.players.online || 0 // Default to zero
+			let playerCount = res.data.players.online || 0
 			client.user.setPresence({
 				game: {
-					// Example: "Watching 5 players on server.com"
 					name: `на Сплэша | g!help`,
-					type: 3 // Use activity type 3 which is "Watching"
+					type: 3
 				}
 			})
 			console.log('Updated player count to', playerCount)
@@ -36,8 +26,6 @@ function pingForPlayers() {
 
 	}).catch(err => console.log('Error pinging api.mcsrvstat.us for data:', err))
 }
-
-// Runs when client connects to Discord.
 
 client.on("message", async message => {
 	if (message.channel.id === '424634328946049025') {
@@ -50,14 +38,10 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
 	
     if(command === "online") {
-		// Ping API for server data.
 	axios.get(`https://${apidomain}/1/${ip}:${port}`).then(res => {
-		// If we got a valid response
 		if(res.data && res.data.players) {
 			let playerCount = res.data.players.online || 0
 			let playerMaxCount = res.data.players.max			
-    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
 		        const embed = new Discord.RichEmbed()
                 .setTitle(`Онлайн:`)
                 .setFooter("GRIEFMC")
@@ -67,13 +51,10 @@ client.on("message", async message => {
 })
 							       }
     if(command === "players") {
-		// Ping API for server data.
 	axios.get(`https://${apidomain}/1/${ip}:${port}`).then(res => {
 		// If we got a valid response
 		if(res.data && res.data.players) {
 let players = res.data.players.list			
-    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
 		        const embed = new Discord.RichEmbed()
                 .setTitle(`Игроки:`)
                 .setFooter("GRIEFMC")
@@ -123,10 +104,8 @@ if (command === "eval") {
 client.on('ready', () => {
 	console.log('Logged in as', client.user.tag)
 
-	pingForPlayers() // Ping server once on startup
-	// Ping the server and set the new status message every x minutes. (Minimum of 1 minute)
+	pingForPlayers()
 	setInterval(pingForPlayers, Math.max(1, 1 || 1) * 60 * 1000)
 })
 
-// Login to Discord
 client.login(env_vh_token)
