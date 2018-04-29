@@ -28,10 +28,6 @@ function pingForPlayers() {
 }
 
 client.on("message", async message => {
-	if (message.channel.id === '424634328946049025') {
-        console.log('caught '+message.id);
-        return multipleReact(message, ['424635897363824640', '424635921158242307']).catch();
-    }
   if(message.author.bot) return;
 	
   if(message.content.indexOf(authprefix) !== 0) return;
