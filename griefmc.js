@@ -34,6 +34,71 @@ client.on("message", async message => {
   const args = message.content.slice(authprefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 	
+	if(command === "moderator") {
+		message.channel.send(`Алекс Линкс прибыл. хдд\n\ng!ban [@упоминание] [причина] - забанить пользователя\ng!kick [@упоминание] [причина] - кикнуть пользователя`);
+	}
+	
+	if(command === "uptime") {
+		const embed = new Discord.RichEmbed()
+            .setTitle(`Статистика бота ` + client.user.tag)
+            .setThumbnail(client.user.avatarURL);
+            embed.addField('Пинг:', client.ping);
+            embed.addField('Память (ОЗУ):', process.env.WEB_MEMORY + 'MB / ' + process.env.MEMORY_AVAILABLE + 'MB');
+            embed.addField('Сервер:', process.env.DYNO);
+            embed.addField('Порт:', process.env.PORT);
+	    embed.addField('Разработчик:', `<@${authowner}>`);
+            message.channel.send(embed);
+}
+	
+	// START MOD //
+ 
+  if(command === "kick") {
+        let err = false;
+    ['KICK_MEMBERS'].forEach(function (item) {
+                if (!message.member.hasPermission(item, false, true, true)) {
+                    err = true;
+                }
+            });
+    if (err) return message.channel.send('Unauthorised access');
+        let member = message.mentions.members.first();
+        if(!member)
+          return message.reply("Fail: user not mentioned");
+        if(!member.kickable) 
+          return message.reply("Fail: unauthorised access for bot");
+        let reason = args.slice(1).join(' ');
+        if(!reason)
+          return message.reply("Fail: reason is not provided");
+        await member.kick(reason)
+          .catch(error => message.channel.send('Unauthorised access'));
+        message.channel.send(`${member.user.tag} was successfully **kicked** for: ` + '`' + reason + '`');
+    }
+
+    if(command === "ban") {
+        let err = false;
+    ['BAN_MEMBERS'].forEach(function (item) {
+                if (!message.member.hasPermission(item, false, true, true)) {
+                    err = true;
+                }
+            });
+    if (err) return message.channel.send('Unauthorised access');
+         
+        let member = message.mentions.members.first();
+        if(!member)
+          return message.reply("Fail: user not mentioned");
+        if(!member.bannable) 
+          return message.reply("Fail: unauthorised access for bot");
+     
+        let reason = args.slice(1).join(' ');
+        if(!reason)
+          return message.reply("Fail: reason is not provided");
+         
+        await member.ban(reason)
+          .catch(error => message.channel.send('Unauthorised access'));
+        message.channel.send(`${member.user.tag} was successfully **banned** for: ` + '`' + reason + '`');
+    }
+	
+// STOP MOD //
+	
     if(command === "online") {
 	axios.get(`https://${apidomain}/1/${ip}:${port}`).then(res => {
 		if(res.data && res.data.players) {
@@ -61,14 +126,14 @@ let players = res.data.players.list
 })
 }
 	if(command === "help") {
-		message.author.send('Команды:\n```fix\ng!about - информация о создателе бота\ng!online - узнать кол-во игроков на сервере\ng!avatar [@mention] - аватарка пользователя (сделал просто так, а почему бы и нет?)\n```');
+		message.author.send('Команды:\n```fix\ng!uptime - показывает статистику бота\ng!moderator - призывает Алекса Линкса (на самом деле - нет, это просто команды модератора)\ng!about - информация о создателе бота\ng!online - узнать кол-во игроков на сервере\ng!avatar [@mention] - аватарка пользователя (сделал просто так, а почему бы и нет?)\n```');
 		message.reply(`проверьте свои личные сообщения`);
 	}
 	if(command === "about") {
 	        const embed = new Discord.RichEmbed()
                 .setTitle(`Обо мне:`)
                 .setFooter("GRIEFMC")
-                .setDescription('Данного бота сделал [SPONSOR] DipperProdYT (<@' + authowner + '>)\nБот не подтвержён сервером GRIEFMC, это чисто разработка игрока.\n\nCopyright by [Eclipse](http://eclipsedev.cf)\n\nПроект на GitHub - [тык, ;3](https://github.com/EclipseHub/griefmcbot)\nДобавить его к себе - [тык, ;3](http://griefmcbot.thedipper.cf)\nСервер тех.поддержки: [тык, ;3](https://discord.gg/dGVdPyk)');
+                .setDescription('Данного бота сделал [SPONSOR] DipperProdYT (<@' + authowner + '>)\nБот не подтвержён сервером GRIEFMC, это чисто разработка игрока.\n\nДобавить его к себе - [тык, ;3](http://griefmcbot.thedipper.cf)');
             message.channel.send({embed});
 	}
 	if(command === "avatar") {
