@@ -111,7 +111,7 @@ client.on("message", async message => {
             message.channel.send({embed});
     }
 })
-							       }
+    }
     if(command === "players") {
 	const embed = new Discord.RichEmbed()
                 .setTitle(`Ошибка:`)
@@ -119,7 +119,6 @@ client.on("message", async message => {
                 .setDescription(`Команда **g!players** не работает, т.к в API отсутствует пункт **playername**`);
             message.channel.send({embed});
 	}
-}
 	if(command === "help") {
 		const embed = new Discord.RichEmbed()
                 .setTitle(`Ошибка:`)
