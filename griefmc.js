@@ -15,7 +15,7 @@ function pingForPlayers() {
 			let playerCount = res.data.players.online || 0
 			client.user.setPresence({
 				game: {
-					name: `на Влада и Полину | g!help`,
+					name: `на Влада и Полину | g!h`,
 					type: 3
 				}
 			})
@@ -119,7 +119,7 @@ client.on("message", async message => {
                 .setDescription(`Команда **g!players** не работает, т.к в API отсутствует пункт **playername**`);
             message.channel.send({embed});
 	}
-	if(command === "help") {
+	if(command === "h") {
 		const embed = new Discord.RichEmbed()
                 .setTitle(`Ошибка:`)
                 .setFooter("GRIEFMC")
