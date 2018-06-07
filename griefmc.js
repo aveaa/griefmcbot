@@ -10,12 +10,12 @@ var port = process.env.GRIEFMC_PORT
 
 function pingForPlayers() {
 
-	axios.get(`https://${apidomain}/1/${ip}:${port}`).then(res => {
+	axios.get(`https://api.mcsrvstat.us/1/${ip}:${port}`).then(res => {
 		if(res.data && res.data.players) {
 			let playerCount = res.data.players.online || 0
 			client.user.setPresence({
 				game: {
-					name: `на Сплэша | g!help`,
+					name: `на Влада и Полину | g!help`,
 					type: 3
 				}
 			})
@@ -35,7 +35,7 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
 	
 	if(command === "moderator") {
-		message.channel.send(`Алекс Линкс прибыл. хдд\n\ng!ban [@упоминание] [причина] - забанить пользователя\ng!kick [@упоминание] [причина] - кикнуть пользователя`);
+		message.channel.send(`Команды модератора:\n\ng!ban [@упоминание] [причина] - забанить пользователя\ng!kick [@упоминание] [причина] - кикнуть пользователя`);
 	}
 	
 	if(command === "uptime") {
@@ -107,39 +107,38 @@ client.on("message", async message => {
 		        const embed = new Discord.RichEmbed()
                 .setTitle(`Онлайн:`)
                 .setFooter("GRIEFMC")
-                .setDescription(`${playerCount} из ${playerMaxCount} игроков на сервере play.grmc.su\n\nЧтобы узнать кто на сервере, напишите g!players`);
+                .setDescription(`${playerCount} из ${playerMaxCount} игроков на сервере play.grmc.su`);
             message.channel.send({embed});
     }
 })
 							       }
     if(command === "players") {
-	axios.get(`https://${apidomain}/1/${ip}:${port}`).then(res => {
-		// If we got a valid response
-		if(res.data && res.data.players) {
-let players = res.data.players.list			
-		        const embed = new Discord.RichEmbed()
-                .setTitle(`Игроки:`)
+	const embed = new Discord.RichEmbed()
+                .setTitle(`Ошибка:`)
                 .setFooter("GRIEFMC")
-                .setDescription(players);
+                .setDescription(`Команда **g!players** не работает, т.к в API отсутствует пункт **playername**`);
             message.channel.send({embed});
 	}
 })
 }
 	if(command === "help") {
-		message.author.send('Команды:\n```fix\ng!uptime - показывает статистику бота\ng!moderator - призывает Алекса Линкса (на самом деле - нет, это просто команды модератора)\ng!about - информация о создателе бота\ng!online - узнать кол-во игроков на сервере\ng!avatar [@mention] - аватарка пользователя (сделал просто так, а почему бы и нет?)\n```');
-		message.reply(`проверьте свои личные сообщения`);
+		const embed = new Discord.RichEmbed()
+                .setTitle(`Ошибка:`)
+                .setFooter("GRIEFMC")
+                .setDescription(`Команды:\n\ng!uptime - показывает статистику бота\ng!moderator - команды модератора\ng!about - информация о создателе бота\ng!online - узнать кол-во игроков на сервере\ng!avatar [@mention] - аватарка пользователя (сделал просто так, а почему бы и нет?)`);
+            message.channel.send({embed});
 	}
 	if(command === "about") {
 	        const embed = new Discord.RichEmbed()
                 .setTitle(`Обо мне:`)
                 .setFooter("GRIEFMC")
-                .setDescription('Данного бота сделал [SPONSOR] DipperProdYT (<@' + authowner + '>)\nБот не подтвержён сервером GRIEFMC, это чисто разработка игрока.\n\nДобавить его к себе - [тык, ;3](http://griefmcbot.thedipper.cf)');
+                .setDescription('Данного бота сделал [SPONSOR] DipperProdYT (<@' + authowner + '>)\nБот не подтвержён сервером GRIEFMC, это чисто разработка игрока.\n\nДобавить его к себе - [https://discordapp.com/authorize?=427154671048589322](https://discordapp.com/oauth2/authorize?client_id=427154671048589322&scope=bot&permissions=8)');
             message.channel.send({embed});
 	}
 	if(command === "avatar") {
 		let member = message.mentions.members.first();
         if (!member)
-            return message.channel.send({error});
+            return message.channel.send(`Вы не упомянули пользователя.`);
             const embed = new Discord.RichEmbed()
                 .setTitle(`Аватарка пользователя ${member.user.tag}`)
                 .setImage(member.user.avatarURL)
@@ -148,7 +147,7 @@ let players = res.data.players.list
             message.channel.send({embed});
 	}
 if (command === "eval") {
-    if(message.author.id !== authowner) return;
+    if(message.author.id !== authowner) return message.channel.send(`Вы не создатель этого бота.`);
     try {
       var code = args.join(" ");
       var evaled = eval(code);
