@@ -1,3 +1,3 @@
 # GRIEFMC.JS
-Бот для Discord сервера<br>
-Добавить его к себе: [click and fun](https://discordapp.com/oauth2/authorize?client_id=427154671048589322&scope=bot&permissions=67128449)
+Бот для Discord сервера<br><br>
+Обновление **больше не осуществляется**, в связи с не популярностью проекта.
