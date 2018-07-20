@@ -7,8 +7,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
   if(message.content === "g!h") {
-    message.channel.send({embed:
-    {
+    message.channel.send({embed: {
     title: "Проект больше не обновляется",
     description: "Проект закрыт и больше не будет обновляться, а ибо зачем быть боту который даже не популярен среди игроков GRIEFMC?\n\nРазработчик: [DipperProdYT](http://eclipsedev.cf) (донатер, тестер GRIEFMC)\nGRIEFMC: [https://grmc.su](https://grmc.su)"
 }
