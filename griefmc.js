@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
   client.user.setStatus('g!h');
-}
+});
 
 client.on('message', message => {
   if(message.content === "g!h") {
