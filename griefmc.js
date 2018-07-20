@@ -8,8 +8,8 @@ client.on('ready', () => {
 client.on('message', message => {
   if(message.content === "g!h") {
     message.channel.send({embed: {
-    title: "Проект больше не обновляется",
-    description: "Проект закрыт и больше не будет обновляться, а ибо зачем быть боту который даже не популярен среди игроков GRIEFMC?\n\nРазработчик: [DipperProdYT](http://eclipsedev.cf) (донатер, тестер GRIEFMC)\nGRIEFMC: [https://grmc.su](https://grmc.su)"
+    title: "Проект обновляется",
+    description: "На данный момент, проект GRIEFMCBOT обновляется, следите за новостями в группе ВК: [https://vk.com/sqdeclipse_group](https://vk.com/sqdeclipse_group)\n\nРазработчик: [DipperProdYT](http://eclipsedev.cf) (донатер, тестер GRIEFMC)\nGRIEFMC: [https://grmc.su](https://grmc.su)"
 }
 });
 }
